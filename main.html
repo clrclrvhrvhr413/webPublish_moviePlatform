@@ -11,7 +11,7 @@
 		<div class="top">
 			<div class="top-inner">
 				<h1>logo</h1>
-				<nav>
+				<nav class="top-menu">
 					<ul>
 						<li><a href="#">뉴스</a></li>
 						<li><a href="#">연예</a></li>
@@ -28,52 +28,202 @@
 				<button>종합메뉴</button>
 			</div>
 		</div>
+		<!-- movie menu -->
+		<nav class="home-menu">
+			<ul>
+				<li><a href="#">홈</a></li>
+				<li><a href="#">랭킹</a></li>
+				<li><a href="#">상영/예정작</a></li>
+				<li><a href="#">콘텐츠</a></li>
+			</ul>
+		</nav>
 	</header>
 
 	<!-- 메인 메뉴 : 다음영화 컨텐츠의 메뉴, 대표영화 예고편 및 타이틀/설명, 영화15리스트-->
 	<main>
-		<nav></nav>
-		<div>
-			<video></video>
-			<div>
-				<h2>TITLE</h2>
-				<p>desc</p>
-				<button>예고편 보기</button>
+		<div class="middle">
+			<!-- 영상, 랭킹 슬라이드 -->
+			<div class="middle-top">
+				<!-- 예고편 영상 -->
+				<div class="preview">
+					<video></video>
+					<div>
+						<h2>TITLE</h2>
+						<p>desc</p>
+						<button>예고편 보기</button>
+					</div>
+				</div>
+				<!-- 랭킹 슬라이드 : 15개 영화 -->
+				<article class="slide">
+					<ol>
+						<li class="poster">
+							<img src="images/poster/poster13.jpg" alt="포스터">
+							<p>평점<span>0</span>/예매율<span>0</span>%</p>
+							<p class="poster-title">title</p>
+							<div class="poster-detail">
+								<ul>
+									<li>개봉<span>2021.10.14</span></li>
+									<li>장르<span>액션</span></li>
+									<li>등급<span>12세이상관람가</span></li>
+									<li>감독<span>캐리 조지 후쿠나가</span></li>
+									<li>주연<span>다니엘 크레이그</span></li>
+								</ul>
+							</div>
+						</li>
+						<li class="poster">
+							<img src="images/poster/poster13.jpg" alt="포스터">
+							<p>평점<span>0</span>/예매율<span>0</span>%</p>
+							<p class="poster-title">title</p>
+							<div class="poster-detail">
+								<ul>
+									<li>개봉<span>2021.10.14</span></li>
+									<li>장르<span>액션</span></li>
+									<li>등급<span>12세이상관람가</span></li>
+									<li>감독<span>캐리 조지 후쿠나가</span></li>
+									<li>주연<span>다니엘 크레이그</span></li>
+								</ul>
+							</div>
+						</li>
+					</ol>
+					<button class="prev">이전 목록</button>
+					<button class="next">다음 목록</button>
+				</article>
+			</div>
+			<!-- 검색, OTT, 그 외 콘텐츠 -->
+			<div class="middle-bottom">
+				<div class="search">
+					<input type="text" name="" placeholder="영화, 인물 검색">
+				</div>
+				<div class="middle-box">
+					<article class="slide">
+						<p class="box-title">kakaopage 영화순위</p>
+						<ol>
+							<li class="poster">
+								<img src="images/poster/poster13.jpg" alt="포스터">
+								<p class="poster-title">title</p>
+							</li>
+							<li class="poster">
+								<img src="images/poster/poster13.jpg" alt="포스터">
+								<p class="poster-title">title</p>
+							</li>
+						</ol>
+						<button class="prev">이전 목록</button>
+						<button class="next">다음 목록</button>
+					</article>
+					<article class="slide">
+						<p class="box-title">tving 영화순위</p>
+						<ol>
+							<li class="poster">
+								<img src="images/poster/poster13.jpg" alt="포스터">
+								<p class="poster-title">title</p>
+							</li>
+							<li class="poster">
+								<img src="images/poster/poster13.jpg" alt="포스터">
+								<p class="poster-title">title</p>
+							</li>
+						</ol>
+						<button class="prev">이전 목록</button>
+						<button class="next">다음 목록</button>
+					</article>
+				</div>
+				<div class="middle-box">
+					<article class="box-content">
+						<p class="box-title">핫클립</p>
+						<div class="preview">
+							<video></video>
+							<div>
+								<h2>TITLE</h2>
+								<p>desc</p>
+								<button>영화정보</button>
+							</div>
+						</div>
+					</article>
+					<article class="box-content">
+						<p class="box-title">영화뉴스</p>
+						<p class="more">더보기</p>
+						<ul class="news-list">
+							<li>
+								<a href="#">"슬럼프"실베스터 스텔본 구한 영화..과감했던 오프닝</a>
+								<span>오마이뉴스</span>
+								<a href="#"><img src="images/box/box-img01.jpg"></a>
+							</li>
+							<li>
+								<a href="#">"슬럼프"실베스터 스텔본 구한 영화..과감했던 오프닝</a>
+								<span>오마이뉴스</span>
+								<a href="#"><img src="images/box/box-img01.jpg"></a>
+							</li>
+							<li>
+								<a href="#">"슬럼프"실베스터 스텔본 구한 영화..과감했던 오프닝</a>
+								<span>오마이뉴스</span>
+								<a href="#"><img src="images/box/box-img01.jpg"></a>
+							</li>
+							<li>
+								<a href="#">"슬럼프"실베스터 스텔본 구한 영화..과감했던 오프닝</a>
+								<span>오마이뉴스</span>
+								<a href="#"><img src="images/box/box-img01.jpg"></a>
+							</li>
+						</ul>
+					</article>
+					<article class="box-content">
+						<p class="box-title">매거진</p>
+						<p class="more">더보기</p>
+						<ul class="magz-list">
+							<li>
+								<a href="#">"슬럼프"실베스터 스텔본 구한 영화..과감했던 오프닝</a>
+								<span>오마이뉴스</span>
+								<a href="#"><img src="images/box/box-img01.jpg"></a>
+							</li>
+							<li>
+								<a href="#">"슬럼프"실베스터 스텔본 구한 영화..과감했던 오프닝</a>
+								<span>오마이뉴스</span>
+								<a href="#"><img src="images/box/box-img01.jpg"></a>
+							</li>
+							<li>
+								<a href="#">"슬럼프"실베스터 스텔본 구한 영화..과감했던 오프닝</a>
+								<span>오마이뉴스</span>
+								<a href="#"><img src="images/box/box-img01.jpg"></a>
+							</li>
+							<li>
+								<a href="#">"슬럼프"실베스터 스텔본 구한 영화..과감했던 오프닝</a>
+								<span>오마이뉴스</span>
+								<a href="#"><img src="images/box/box-img01.jpg"></a>
+							</li>
+						</ul>
+					</article>
+					<article class="box-content">
+						<p class="box-title">브런치</p>
+						<p class="more">더보기</p>
+						<ul class="blog-list">
+							<li>
+								<a href="#">"슬럼프"실베스터 스텔본 구한 영화..과감했던 오프닝</a>
+								<span>오마이뉴스</span>
+								<a href="#"><img src="images/box/box-img01.jpg"></a>
+							</li>
+							<li>
+								<a href="#">"슬럼프"실베스터 스텔본 구한 영화..과감했던 오프닝</a>
+								<span>오마이뉴스</span>
+								<a href="#"><img src="images/box/box-img01.jpg"></a>
+							</li>
+							<li>
+								<a href="#">"슬럼프"실베스터 스텔본 구한 영화..과감했던 오프닝</a>
+								<span>오마이뉴스</span>
+								<a href="#"><img src="images/box/box-img01.jpg"></a>
+							</li>
+							<li>
+								<a href="#">"슬럼프"실베스터 스텔본 구한 영화..과감했던 오프닝</a>
+								<span>오마이뉴스</span>
+								<a href="#"><img src="images/box/box-img01.jpg"></a>
+							</li>
+						</ul>
+					</article>
+				</div>
 			</div>
 		</div>
-		<!-- 영화 모음 1 : 15개 -->
-		<article>
-			<!-- 영화 하나가 section 하나 -->
-			<section>
-				<!-- 이 안에 
-					영화 포스터 이미지
-					순위 숫자(1~15)
-					평점/예매율
-					타이틀
-					**호버시 나오는 것들
-					개봉, 장르, 등급, 감독, 주연-->
-			</section>
-		</article>
-
-		<!-- 검색창 -->
-
-		<!-- 티빙 영화순위 -->
-
-		<!-- 카카오페이지 영화순위 -->
-
-		<!-- 그 외 컨텐츠 -->
-			<!-- row1 -->
-				<!-- 핫클립 -->
-				<!-- 영화뉴스 -->
-
-			<!-- row2 -->
-				<!-- 매거진 -->
-				<!-- 브런치 -->
 	</main>
 
 	<!-- 푸터 -->
 	<footer>
-		<div class="footer-inner">
+		<div class="footer">
 			<div class="footer-left">
 				<ul class="footer-menu">
 					<li><a href="#">홈</a></li>
@@ -83,16 +233,27 @@
 				</ul>
 				<div class="footer-link">
 					<a href="#">다음뉴스소개</a>
+					<a href="#">공지사항</a>
+					<a href="#">게시물운영원칙</a>
+					<a href="#">서비스 약관/정책</a>
+					<a href="#">뉴스제휴</a>
+					<a href="#">비즈니스</a>
+					<a href="#">권리침해신고</a>
+					<a href="#">영화고객센터</a>
 				</div>
 				<div class="footer-link">
 					<a href="#">24시간뉴스센터</a>
+					<a href="#">서비스원칙</a>
+					<a href="#">바로잡습니다</a>
+					<a href="#">기사배열책임자:홍길동</a>
+					<a href="#">청소년보호책임자:홍길도</a>
 				</div>
 			</div>
 			<div class="footer-right">
-				<p>copy</p>
-				<p>copy</p>
+				<p>위 내용에 대한 저작권 및 법적 책임은 자료제공사 또는 글쓴이에 있으며, Kakao의 입장과 다를 수 있습니다.</p>
+				<p>Copyright&copy;Kakao Corp.All rights reserved.</p>
 			</div>
-			<div class="to-top"></div>
+			<div class="to-top">TOP</div>
 		</div>
 	</footer>
 </body>
