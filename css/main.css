@@ -12,7 +12,98 @@ button {
 	background: none;
 	margin: 0; padding: 0;
 }
-body {
+body, header, main, footer{
 	width: 100%;
-	min-width: 1000px;
-}
+} 
+/*header*/
+	header {width: 100%;height: 50px;position: relative;}
+	header .top {
+		position: relative;
+		width: 1000px; height: 100%;
+		margin: 0 auto;
+		line-height: 50px;
+	}
+	header .top-left {width: 100%; height: 100%;}
+	/*top logo*/
+		.top-left h1 {
+			float: left;
+			width: 90px;
+			margin-right: 20px;
+			background: pink;
+		}
+	/*top-menu*/
+		.top-left .top-menu {
+			float: left;
+		}
+		.top-menu li {
+			display: inline-block;
+			font-size: 13px;
+			padding-right: 7px;
+		}
+		.top-menu li a {
+			color: #888;
+			font-weight: normal;
+		}
+	header .top-right {
+		width: 300px; height: inherit;
+		position: absolute; right: 0; top: 0;
+		text-align: right;
+	}
+	/*login*/
+		.top-right .login {
+			font-size: 10px;
+			border: 1px solid #ccc;
+			padding: 4px 8px;
+		}
+	/*total menu*/
+		.top-right .total-menu-btn {
+			position: relative;
+			top: 2px;
+			width: 23px; height: 23px;
+			text-indent: -9999px;
+			background: url('../images/total-menu-btn.png') no-repeat;
+			background-size: 100%;
+			opacity: .6;
+		}
+		.top-right .total-menu-btn:hover {opacity: 1;}
+	header .home-menu {
+		width: 1000px; height: inherit;
+	}
+	/*home-menu*/
+		.home-menu>ul {
+			position: absolute;
+			z-index: 100;
+			left: 50%; top: 100%;
+			margin-left: -235px; margin-top: 30px;
+			
+		}
+		.home-menu>ul>li:first-child {text-align: center;}
+		.home-menu>ul>li {
+			float: left;
+			padding-right: 70px;
+			position: relative;
+		}
+		.home-menu>ul>li>a {
+			color: rgba(255, 255, 255, .6);
+			font-size: 23px;
+			transition: color .1s;
+		}
+		.home-menu>ul>li:hover>a {color: #fff;}
+		.home-submenu {
+			display: none;
+			position: absolute; left: 0;
+			width: 1000px;
+		}
+		.home-menu>ul>li:hover .home-submenu {display: block;}
+		.home-submenu li{
+			float: left;
+			padding: 20px 30px 20px 0;
+		}
+		.home-submenu a {color: #fff;}
+		.home-submenu a:hover {color: red;}
+
+
+/*main*/
+
+
+/*footer*/
