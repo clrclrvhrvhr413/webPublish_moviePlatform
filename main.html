@@ -10,7 +10,7 @@
 	<header>
 		<!-- logo, shortcut menu -->
 		<div class="top">
-			<div class="top-inner">
+			<div class="top-left">
 				<h1>logo</h1>
 				<nav class="top-menu">
 					<ul>
@@ -21,21 +21,41 @@
 					</ul>
 				</nav>
 			</div>
-		</div>
-		<!-- login, total menu -->
-		<div class="top-right">
-			<div>
-				<button>로그인</button>
-				<button>종합메뉴</button>
+			<!-- login, total menu -->
+			<div class="top-right">
+				<div>
+					<button class="login">로그인</button>
+					<button class="total-menu-btn">종합메뉴</button>
+					<div class="total-menu"></div>
+				</div>
 			</div>
 		</div>
 		<!-- movie menu -->
 		<nav class="home-menu">
 			<ul>
 				<li><a href="#">홈</a></li>
-				<li><a href="#">랭킹</a></li>
-				<li><a href="#">상영/예정작</a></li>
-				<li><a href="#">콘텐츠</a></li>
+				<li><a href="#">랭킹</a>
+					<ul class="home-submenu">
+						<li><a href="#">예매순위</a></li>
+						<li><a href="#">박스오피스</a></li>
+						<li><a href="#">OTT</a></li>
+					</ul>
+				</li>
+				<li><a href="#">상영/예정작</a>
+					<ul class="home-submenu">
+						<li><a href="#">영화관</a></li>
+						<li><a href="#">넷플릭스</a></li>
+						<li><a href="#">왓챠</a></li>
+						<li><a href="#">카카오페이지</a></li>
+					</ul>
+				</li>
+				<li><a href="#">콘텐츠</a>
+					<ul class="home-submenu">
+						<li><a href="#">영화뉴스</a></li>
+						<li><a href="#">매거진</a></li>
+						<li><a href="#">브런치</a></li>
+					</ul>
+				</li>
 			</ul>
 		</nav>
 	</header>
