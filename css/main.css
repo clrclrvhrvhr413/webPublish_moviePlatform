@@ -19,7 +19,7 @@ body, header, main, footer{
 	header {width: 100%;height: 50px;position: relative;}
 	header .top {
 		position: relative;
-		width: 1000px; height: 100%;
+		width: 1100px; height: 100%;
 		margin: 0 auto;
 		line-height: 50px;
 	}
@@ -27,18 +27,28 @@ body, header, main, footer{
 	/*top logo*/
 		.top-left h1 {
 			float: left;
-			width: 90px;
+			width: 90px; height: inherit;
 			margin-right: 20px;
-			background: pink;
+			background: url('../images/logo.png') no-repeat 0 center;
+			background-size: 50px auto;
 		}
+		.top-left h1 a {
+			margin-left: 55px;
+			display: inline;
+			text-align: right;
+			font-size: 17px;
+			font-weight: 700;
+			letter-spacing: -2px;
+		}
+		.top-left h1 a:hover {text-decoration: underline;}
 	/*top-menu*/
 		.top-left .top-menu {
 			float: left;
 		}
 		.top-menu li {
 			display: inline-block;
-			font-size: 13px;
-			padding-right: 7px;
+			font-size: 14px;
+			padding-right: 10px;
 		}
 		.top-menu li a {
 			color: #888;
@@ -52,14 +62,15 @@ body, header, main, footer{
 	/*login*/
 		.top-right .login {
 			font-size: 10px;
-			border: 1px solid #ccc;
-			padding: 4px 8px;
+			border: 1px solid #ddd;
+			padding: 4px 9px;
+			margin-right: 19px;
 		}
 	/*total menu*/
 		.top-right .total-menu-btn {
 			position: relative;
-			top: 2px;
-			width: 23px; height: 23px;
+			top: 1px;
+			width: 20px; height: 20px;
 			text-indent: -9999px;
 			background: url('../images/total-menu-btn.png') no-repeat;
 			background-size: 100%;
@@ -67,32 +78,31 @@ body, header, main, footer{
 		}
 		.top-right .total-menu-btn:hover {opacity: 1;}
 	header .home-menu {
-		width: 1000px; height: inherit;
+		width: 1100px; height: inherit;
 	}
 	/*home-menu*/
 		.home-menu>ul {
 			position: absolute;
 			z-index: 100;
 			left: 50%; top: 100%;
-			margin-left: -235px; margin-top: 30px;
-			
+			margin-left: -260px; margin-top: 30px;
 		}
 		.home-menu>ul>li:first-child {text-align: center;}
 		.home-menu>ul>li {
 			float: left;
-			padding-right: 70px;
+			padding-right: 80px;
 			position: relative;
 		}
 		.home-menu>ul>li>a {
 			color: rgba(255, 255, 255, .6);
-			font-size: 23px;
+			font-size: 25px;
 			transition: color .1s;
 		}
 		.home-menu>ul>li:hover>a {color: #fff;}
 		.home-submenu {
 			display: none;
 			position: absolute; left: 0;
-			width: 1000px;
+			width: 1100px;
 		}
 		.home-menu>ul>li:hover .home-submenu {display: block;}
 		.home-submenu li{
