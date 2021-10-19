@@ -16,7 +16,10 @@ body{
 	width: 100%;
 	/*overflow: hidden;*/
 	/*overflow-y: auto;*/
-} 
+}
+.clear {
+	clear: both;
+}
 /*header*/
 	header {width: 100%;height: 60px;}
 	header .top {
@@ -121,7 +124,7 @@ body{
 
 /*main*/
 	main {width: 100%;}
-	main .middle {width: 100%; overflow: hidden;}
+	main .middle {width: 100%;}
 	.middle .middle-top {width: 100%; height: 730px; background: pink; margin-bottom: 166px; position: relative;}
 	/*middle-top*/
 		.middle-top .preview {width: 100%; height: inherit; overflow: hidden;}
@@ -209,17 +212,17 @@ body{
 			.slide .poster .poster-title:hover {text-decoration: underline;}
 			.slide button {
 				width: 50px; height: 50px;
-				background-color: #fff; border-radius: 50%;
 				position: absolute; top: 118px;
-				z-index: 100; text-indent: -9999px;
-				cursor: pointer;
+				z-index: 100; 
+				cursor: pointer; color: transparent;
+				background-color: #fff; border-radius: 50%;
 				box-shadow: 0 0 4px rgba(0, 0, 0, .2);
 			}
 			.slide button::after {
 				content: ""; display: block;
 				width: 10px; height: 10px;
 				border-top: 3px solid #000; border-right: 3px solid #000;
-				position: relative; top: -7px; left: 17px;
+				position: absolute; top: 19px; left: 17px;
 			}
 			.slide button.prev {left: -25px; transform: rotate(-135deg); transition:left .2s;}
 			.slide button.prev:hover {left: -35px;}
@@ -244,16 +247,15 @@ body{
 			right: 0; top: 16px;
 		}
 		.search button i {font-size: 27px; color: #777;}
-		/* .middle-bottom .middle-box {
-			background: lightcoral;
-		} */
 		/*middle-box*/
 			/* slide */
 			.middle-box .box-title {
 				font-size: 30px;font-weight: 700;
-				line-height: 41px;letter-spacing: -1px;
+				line-height: 47px;letter-spacing: -1px;
 				margin-bottom: 10px;
 				height: 50px;
+				display: block;
+				position: relative;
 			}
 			.box-title span {
 				display: inline-block;
@@ -268,22 +270,42 @@ body{
 			.middle-box .poster img {transition: transform .2s linear;}
 			.middle-box .poster:hover img{transform: scale(1.2); transition: transform .2s linear;}
 			/* box-cotent */
+		 .middle-bottom .middle-box .box-content{
+			background: lightcoral;
+		} 
 			.middle-box .box-content {
 				float: left;
-				width: 50%; box-sizing: border-box;
+				width: 530px;
+				margin: 0 20px;
+				/*box-sizing: border-box;*/
 			}
+			.middle-box .box-content:nth-child(odd) {margin-left: 0;}
+			.middle-box .box-content:nth-child(even) {margin-right: 0;}
 			.box-content .more {
-				width: 50px; line-height: 20px;
-				border: 1px solid #888;
+				position: absolute; right: 0; bottom: 5px;
+				width: 90px; line-height: 32px;
+				border: 1px solid #aaa;
 				border-radius: 20px;
+				font-size: 14px; font-weight: normal;
+				text-indent: 15px;
+				cursor: pointer;
+				transition: all .4s;
+				display: inline-block;
 			}
-			.box-content.row3 {}
-				/* hot clip, news */
+			.box-content .more:hover {border-color: #888;}
+			.box-content .more:after {
+				content: ""; display: inline-block;
+				width: 6px; height: 6px;
+				border-top: 2px solid #444; border-right: 2px solid #444;
+				position: absolute; top: 50%; margin-top: -5px; margin-left: 10px;
+				transform: rotate(45deg);
+			}
+			.box-content.row3 {margin-bottom: 60px;}
 				/* hot clip */
 					.row3 .preview {
 						background-color: saddlebrown;
-						width: 530px; height: 298px;
-						margin-right: 20px;border-radius: 10px;
+						width: 100%; height: 298px;
+						border-radius: 10px;
 						overflow: hidden;
 					}
 					.middle-box .preview .preview-text {
@@ -292,29 +314,52 @@ body{
 						top: -138px;
 					}
 					/*preview-text*/
-						.middle-box .preview-text h2 {color: #fff; font-size: 20px;font-weight: 700;}
-						.middle-box .preview-text .preview-desc {
-							width: 100%; word-break: keep-all;
-							color: #eee; font-size: 17px;
-							padding: 5px 0 15px;
-							opacity: .7;
-						}
-						.middle-box .preview-text button {
-							width: 100px; height: 30px;
-							line-height: 30px;
-							background: #fff; border-radius: 2px;
-							 font-size: 15px;
-							font-weight: 700;
-							box-sizing: border-box;
-							text-align: center;
-							/* padding-right: 15px; */
-							/* position: relative; */
-						}
+					.middle-box .preview-text h2 {color: #fff; font-size: 20px;font-weight: 700;}
+					.middle-box .preview-text .preview-desc {
+						width: 100%; word-break: keep-all;
+						color: #eee; font-size: 17px;
+						padding: 5px 0 15px;
+						opacity: .7;
+					}
+					.middle-box .preview-text button {
+						width: 100px; height: 30px;
+						line-height: 30px;
+						background: #fff; border-radius: 2px;
+						 font-size: 15px;
+						font-weight: 700;
+						box-sizing: border-box;
+						text-align: center;
+					}
 				/* news */
-					.row3 .news-table tr {display: flex; height: 100px;}
-					.row3 .news-table tr td:first-child {flex: 5;}
-					.row3 .news-table tr td:last-child {flex:1;}
-					.news-table img {width: 120px; height: 70px;}
+					.row3 .news-table {width: 100%;}
+					.news-table tr{height: 68px; display: block; margin: 9px 0;}
+					.news-table tr:first-child {margin-top: 0;}
+					.news-table tr:last-child {margin-bottom: 0;}
+					.news-table tr td {display: inline-block;}
+					.news-table tr td:first-child {
+						width: 380px; height: 100%;
+						box-sizing: border-box;
+						margin: 8px 30px 0 0;
+						/*display: inline-block;*/
+						float: left;
+					}
+					.news-table tr td:last-child {float: right;}
+					.news-table td a{
+						font-size: 17px;
+						word-break: keep-all;
+						white-space: nowrap;
+						text-overflow: ellipsis;
+						overflow: hidden;
+					}
+					.news-table span {
+						font-size: 15px; color: #888;
+						display: inline-block;
+						margin-top: 10px;
+					}
+					.news-table img {
+						width: 120px; height: 67px;
+						border-radius: 10px;
+					}
 			.box-content.row4 {}
 				/* magz, brunch */
 
