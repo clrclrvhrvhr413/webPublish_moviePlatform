@@ -111,7 +111,7 @@ body{
 		.home-submenu {
 			display: none;
 			position: absolute; left: 0;
-			width: 1100px;
+			width: 380px;
 		}
 		.home-menu>ul>li:hover .home-submenu {display: block;}
 		.home-submenu li{
@@ -170,15 +170,24 @@ body{
 				right: 1px; top: 11px;
 			}
 		/*slide*/
-			.middle-top .slide {width: 1100px; margin: 0 auto; position: relative; top: -244px;}
+			.middle-top .slide-wrap {width: 1100px; margin: 0 auto; position: relative; top: -274px;}
+			.middle-top .slide {width: 1100px; position: absolute; padding-top: 30px;}
+			.middle-top .slide-btn {top: 30px;}
 			.middle-top .poster-thumb,
-			.middle-bottom .poster-thumb {position: relative; width: 100%; height: 100%; border-radius: 10px; overflow: hidden;}
+			.middle-bottom .poster-thumb {
+				position: relative;
+				width: 100%; height: 100%;
+				border: 1px solid rgba(0, 0, 0, .2);
+				border-radius: 10px;
+				overflow: hidden;
+			}
 			.poster-thumb .ratio {
-				position: absolute;
-				bottom: 15px;
-				width: 100%;
+				position: absolute; bottom: 0;
+				width: 100%; height: 30px;
+				padding-top: 266px;
 				text-align: center;
 				color: #fff; font-size: 15px;
+				background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.6) 80%,rgba(0,0,0,1) 100%);
 			}
 			.ratio span {font-weight: 700;}
 			.poster-thumb .poster-detail {
@@ -205,12 +214,15 @@ body{
 			.middle-top .poster:hover {top: -12px; transition: top .3s; transition-delay: .5s;}
 			.poster-thumb:hover .poster-detail{opacity: 1; transition: opacity .3s; transition-delay: .5s;}
 			/* slide common css */
-			.slide {position: relative;}
-			.slide li.poster {display: inline-block; margin-right: 18px; width: 202px; height: 296px;cursor: pointer;}
+			.slide-wrap {position: relative;}
+			.slide {position: relative; overflow: hidden; z-index: 10;}
+			.slide ol {width: 1000%;}
+			.slide li.poster {display: inline-block; margin-right: 17px; width: 202px; height: 296px;cursor: pointer;}
 			.slide .poster img {width: 100%; height: 100%;}
 			.slide .poster .poster-title {width: 100%; text-align: center;padding-top: 17px;font-size: 19px;font-weight: 700;}
 			.slide .poster .poster-title:hover {text-decoration: underline;}
-			.slide button {
+			.slide-btn {width: 1100px; height: 296px; position: absolute; top: 0;}
+			.slide-btn button {
 				width: 50px; height: 50px;
 				position: absolute; top: 118px;
 				z-index: 100; 
@@ -218,16 +230,16 @@ body{
 				background-color: #fff; border-radius: 50%;
 				box-shadow: 0 0 4px rgba(0, 0, 0, .2);
 			}
-			.slide button::after {
+			.slide-btn button::after {
 				content: ""; display: block;
 				width: 10px; height: 10px;
 				border-top: 3px solid #000; border-right: 3px solid #000;
 				position: absolute; top: 19px; left: 17px;
 			}
-			.slide button.prev {left: -25px; transform: rotate(-135deg); transition:left .2s;}
-			.slide button.prev:hover {left: -35px;}
-			.slide button.next {right: -25px; transform: rotate(45deg);transition:right .2s;}
-			.slide button.next:hover {right: -35px}
+			.slide-btn button.prev {left: -25px; transform: rotate(-135deg); transition:left .2s;}
+			.slide-btn button.prev:hover {left: -35px;}
+			.slide-btn button.next {right: -25px; transform: rotate(45deg);transition:right .2s;}
+			.slide-btn button.next:hover {right: -35px}
 	 .middle .middle-bottom {width: 1100px; margin: 0 auto;} 
 	/*middle-bottom*/
 		.middle-bottom .search {
@@ -340,6 +352,13 @@ body{
 						/*display: inline-block;*/
 						float: left;
 					}
+					.news-table tr td:last-child {
+						width: 120px; height: 67px;
+						box-sizing: border-box;
+						border: 1px solid #ddd;
+						border-radius: 10px;
+						overflow: hidden;
+					}
 					.news-table tr td:last-child {float: right;}
 					.news-table td a{
 						font-size: 17px;
@@ -354,12 +373,18 @@ body{
 						margin-top: 10px;
 					}
 					.news-table img {
-						width: 120px; height: 67px;
-						border-radius: 10px;
+						width: 100%;
 					}
 			.box-content.row4 {margin-bottom: 51px;}
 				.row4 li {width: 255px; height: 243px; float: left;}
 				.row4 li:nth-child(odd) {margin-right: 20px;}
+				.row4 li a:first-of-type {
+					width: 255px; height: 132px;
+					box-sizing: border-box;
+					border: 1px solid #ddd;
+					border-radius: 10px;
+					overflow: hidden;
+				}
 				.row4 li a:last-of-type{
 					font-size: 17px;
 					word-break: keep-all;
@@ -373,7 +398,7 @@ body{
 					display: inline-block;
 					margin-top: 7px;margin-bottom: 36px;
 				}
-				.blog-list img, .magz-list img {width: 255px; height: 132px; border-radius: 10px;}
+				.blog-list img, .magz-list img {width: 100%;}
 				/* magz, brunch */
 
 /*footer*/
