@@ -300,7 +300,7 @@ body{
 				position: absolute; top: 50%; margin-top: -5px; margin-left: 10px;
 				transform: rotate(45deg);
 			}
-			.box-content.row3 {margin-bottom: 60px;}
+			.box-content.row3 {margin-bottom: 51px;}
 				/* hot clip */
 					.row3 .preview {
 						background-color: saddlebrown;
@@ -360,7 +360,23 @@ body{
 						width: 120px; height: 67px;
 						border-radius: 10px;
 					}
-			.box-content.row4 {}
+			.box-content.row4 {margin-bottom: 51px;}
+				.row4 li {width: 255px; height: 243px; float: left;}
+				.row4 li:nth-child(odd) {margin-right: 20px;}
+				.row4 li a:last-of-type{
+					font-size: 17px;
+					word-break: keep-all;
+					line-height: 1.4;
+					/*height: 47px;*/
+					margin-top: 9px;
+				}
+				.box-content a:hover {text-decoration: underline;}
+				.row4 li span {
+					font-size: 15px; color: #888;
+					display: inline-block;
+					margin-top: 7px;margin-bottom: 36px;
+				}
+				.blog-list img, .magz-list img {width: 255px; height: 132px; border-radius: 10px;}
 				/* magz, brunch */
 
 /*footer*/
