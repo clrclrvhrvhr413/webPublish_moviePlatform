@@ -11,6 +11,7 @@ button {
 	border: none;
 	background: none;
 	margin: 0; padding: 0;
+	cursor: pointer;
 }
 body{
 	width: 100%;
@@ -146,7 +147,7 @@ body{
 			top: -957px;
 		}
 		/*preview-text*/
-			.preview-text:before {
+			.middle-top .preview-text:before {
 				content: ""; display: block;
 				width: 2066px; height: 2500px;
 				position: absolute; top: 50%; left: 50%;
@@ -155,8 +156,9 @@ body{
 			}
 			.preview-text h2 {color: #fff; font-size: 50px;font-weight: 700;position: relative;}
 			.preview-text .preview-desc {
-				width: 350px; word-break: keep-all;
-				color: #eee; font-size: 20px;
+				width: 420px;
+				color: #eee; font-size: 15px;
+				line-height: 20px;
 				padding: 15px 0 20px;
 				position: relative;
 			}
@@ -180,6 +182,7 @@ body{
 				position: absolute;
 				right: 1px; top: 11px;
 			}
+			.middle-top .preview-text button:hover {opacity: .8;}
 		/*slide*/
 			.middle-top .slide-wrap {width: 1100px; margin: 0 auto; position: relative; top: -274px;}
 			.middle-top .slide {width: 1100px; position: absolute; padding-top: 30px;}
@@ -230,14 +233,20 @@ body{
 			.slide ol {width: 1000%;}
 			.slide li.poster {display: inline-block; margin-right: 17px; width: 202px; height: 296px;cursor: pointer;}
 			.slide .poster img {width: 100%; height: 100%;}
-			.slide .poster .poster-title {width: 100%; text-align: center;padding-top: 17px;font-size: 19px;font-weight: 700;}
+			.slide .poster .poster-title {
+				width: 95%; margin: 0 auto;
+				text-align: center; padding-top: 17px;
+				font-size: 16px;font-weight: 700;
+				white-space: nowrap;
+				text-overflow: ellipsis; overflow: hidden;
+			}
 			.slide .poster .poster-title:hover {text-decoration: underline;}
 			.slide-btn {width: 1100px; height: 296px; position: absolute; top: 0;}
 			.slide-btn button {
 				width: 50px; height: 50px;
 				position: absolute; top: 118px;
 				z-index: 100; 
-				cursor: pointer; color: transparent;
+				color: transparent;
 				background-color: #fff; border-radius: 50%;
 				box-shadow: 0 0 4px rgba(0, 0, 0, .2);
 			}
@@ -332,6 +341,7 @@ body{
 						width: 88%; margin: 20px auto;
 						position: relative;
 						top: -138px;
+						letter-spacing: -2px;
 					}
 					/*preview-text*/
 					.middle-box .preview-text h2 {color: #fff; font-size: 20px;font-weight: 700;}
@@ -345,11 +355,12 @@ body{
 						width: 100px; height: 30px;
 						line-height: 30px;
 						background: #fff; border-radius: 2px;
-						 font-size: 15px;
+						font-size: 15px;
 						font-weight: 700;
 						box-sizing: border-box;
 						text-align: center;
 					}
+					.middle-box .preview-text button:hover {opacity: .8;}
 				/* news */
 					.row3 .news-table {width: 100%;}
 					.news-table tr{height: 68px; display: block; margin: 9px 0;}
@@ -376,6 +387,7 @@ body{
 						word-break: keep-all;
 						white-space: nowrap;
 						text-overflow: ellipsis;
+						letter-spacing: -2px;
 						overflow: hidden;
 					}
 					.news-table span {
@@ -387,7 +399,7 @@ body{
 						width: 100%;
 					}
 			.box-content.row4 {margin-bottom: 51px;}
-				.row4 li {width: 255px; height: 243px; float: left;}
+				.row4 li {width: 255px; height: 243px; float: left; letter-spacing: -2px;}
 				.row4 li:nth-child(odd) {margin-right: 20px;}
 				.row4 li a:first-of-type {
 					width: 255px; height: 132px;
@@ -400,7 +412,7 @@ body{
 					font-size: 17px;
 					word-break: keep-all;
 					line-height: 1.4;
-					/*height: 47px;*/
+					padding-left: 5px;
 					margin-top: 9px;
 				}
 				.box-content a:hover {text-decoration: underline;}
@@ -408,9 +420,18 @@ body{
 					font-size: 15px; color: #888;
 					display: inline-block;
 					margin-top: 7px;margin-bottom: 36px;
+					padding-left: 5px;
 				}
 				.blog-list img, .magz-list img {width: 100%;}
 				/* magz, brunch */
+				.blog-list span:before {
+					content: 'by';
+					display: inline-block;
+					font-family: '휴먼편지체','sans-serif;';
+					font-size: 17px;
+					color: #ccc;
+					padding-right: 8px;
+				}
 
 /*footer*/
 	footer {width: 100%; height: 165px;background: #222;}
