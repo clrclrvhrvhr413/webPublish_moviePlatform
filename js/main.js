@@ -4,7 +4,13 @@ $(function(){
 		$slideBtn = $slideWrap.find($('.slide-btn')),
 		$Rbtn = $slideBtn.find($('.next')),
 		$Lbtn = $slideBtn.find($('.prev'));
+	const $previewText = $('.middle-top .preview-text');
 
+	const PREV_HIDE_TIME = 10000,
+		PREV_ANIMATE_TIME = 500,
+		SLIDE_WIDTH = 1123;
+
+	// init
 	function slideNumberInit(){
 		for(var i=0;i<$slide.length;i++){
 			$poster = $slide.eq(i).find('li.poster');
@@ -18,23 +24,42 @@ $(function(){
 			}
 		}
 	}
+	function previewTextInit(){
+		$previewText.animate({
+			'left':0,
+			'opacity':1
+		},PREV_ANIMATE_TIME);
+	}
+	function previewTextHide(){
+		$previewText.find('.preview-desc').animate({'opacity':0},PREV_ANIMATE_TIME);
+		$previewText.find('h2').animate({
+			'font-size':'35px',
+			'top':'80px'
+		},PREV_ANIMATE_TIME,'swing');
+
+		setTimeout(function(){
+			$previewText.find('.preview-desc').css({'display':'none'})
+		},PREV_ANIMATE_TIME);
+	}
+
+	// Event
 	function slideMoveRight(target){
 		let $ol = target.parent($slideBtn).siblings($slide).find('ol');
 		let pos = parseInt($ol.css('margin-left').slice(0,-2));
-		$ol.animate({'margin-left':`${pos-1123}px`},300);
+		$ol.animate({'margin-left':`${pos-SLIDE_WIDTH}px`},300);
 
-		slideBtnHide(target,pos-1123);
+		slideBtnHide(target,pos-SLIDE_WIDTH);
 	}
 	function slideMoveLeft(target){
 		let $ol = target.parent($slideBtn).siblings($slide).find('ol');
 		let pos = parseInt($ol.css('margin-left').slice(0,-2));
-		$ol.animate({'margin-left':`${pos+1123}px`},300);
+		$ol.animate({'margin-left':`${pos+SLIDE_WIDTH}px`},300);
 
-		slideBtnHide(target,pos+1123);
+		slideBtnHide(target,pos+SLIDE_WIDTH);
 	}
 	function slideBtnHide(target,newPos){
-		var end = -2246;
-		if (target.parents().hasClass('middle-bottom')) {end = -1123;}
+		var end = -SLIDE_WIDTH*2;
+		if (target.parents().hasClass('middle-bottom')) {end = -SLIDE_WIDTH;}
 
 		target.parent($slideBtn).children('button').removeClass('off');
 		if (newPos === 0) {
@@ -54,5 +79,8 @@ $(function(){
 		// e.stopPropagation();
 	});
 
-	slideNumberInit()
+
+	slideNumberInit();
+	previewTextInit();
+	setTimeout(previewTextHide,PREV_HIDE_TIME);
 })
