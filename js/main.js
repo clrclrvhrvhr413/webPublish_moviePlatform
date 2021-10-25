@@ -1,59 +1,58 @@
-const slideWrap = document.querySelectorAll('.slide-wrap');
-	for(let i in slideWrap){
-		const slide = slideWrap[i].getElementsByClassName('slide'),
-			slideBtns = slideWrap[i].getElementsByClassName('slide-btn');
+$(function(){
+	const $slideWrap = $('.slide-wrap'),
+		$slide = $slideWrap.find($('.slide')),
+		$slideBtn = $slideWrap.find($('.slide-btn')),
+		$Rbtn = $slideBtn.find($('.next')),
+		$Lbtn = $slideBtn.find($('.prev'));
 
-		console.log(slideBtns)
-			// Rbtn = slideWrap[i].slideBtns.getElementsByClassName('.next'),
-			// Lbtn = slideWrap[i].slideBtns.getElementsByClassName('.prev');
-
+	function slideNumberInit(){
+		for(var i=0;i<$slide.length;i++){
+			$poster = $slide.eq(i).find('li.poster');
+			for(var j=0;j<$poster.length;j++){
+				$poster.eq(j).find('span.rank').text(j+1);
+				// random 숫자 발생 : 평점 0.0~10.0, 예매율 0.0~100.0
+				let randN1 = (Math.random()*10).toFixed(1);
+				let randN2 = (Math.random()*100).toFixed(1);
+				$poster.eq(j).find('.ratio span:first-child').text(randN1);
+				$poster.eq(j).find('.ratio span:last-child').text(randN2);
+			}
+		}
 	}
-	// slide = slideWrap[1].querySelector('.slide'),
-	// slideBtns = slideWrap.querySelectorAll('.slide-btn'),
-	// Rbtn = slideBtns.querySelectorAll('.next'),
-	// Lbtn = slideBtns.querySelectorAll('.prev');
+	function slideMoveRight(target){
+		let $ol = target.parent($slideBtn).siblings($slide).find('ol');
+		let pos = parseInt($ol.css('margin-left').slice(0,-2));
+		$ol.animate({'margin-left':`${pos-1123}px`},300);
 
-function slide_move_right(e){
-	console.log('right btn clicked');
-	console.log(e.target)
-	// slide.style.marginLeft = '-1126px';
-}
-console.log(slideWrap)
-// Rbtn.addEventListener('click',slide_move_right);
+		slideBtnHide(target,pos-1123);
+	}
+	function slideMoveLeft(target){
+		let $ol = target.parent($slideBtn).siblings($slide).find('ol');
+		let pos = parseInt($ol.css('margin-left').slice(0,-2));
+		$ol.animate({'margin-left':`${pos+1123}px`},300);
 
-// $(function(){
-// 	const $slideWrap = $('.slide-wrap'),
-// 		$slide = $slideWrap.children($('.slide')),
-// 		$slideBtn = $slideWrap.children($('.slide-btn')),
-// 		$Rbtn = $slideBtn.children($('.next')),
-// 		$Lbtn = $slideBtn.children($('.prev'));
+		slideBtnHide(target,pos+1123);
+	}
+	function slideBtnHide(target,newPos){
+		var end = -2246;
+		if (target.parents().hasClass('middle-bottom')) {end = -1123;}
 
-// 	function slideMoveRight(e){
-// 		let $ol = $(this).parent($slideBtn).siblings($slide).find('ol')
-// 		let pos = $ol.css('margin-left');
-// 		$ol.css('margin-left',`${pos-1126}px`);
+		target.parent($slideBtn).children('button').removeClass('off');
+		if (newPos === 0) {
+			target.parent($slideBtn).find('.prev').addClass('off');
+		}
+		else if(newPos === end){
+			target.parent($slideBtn).find('.next').addClass('off');
+		}
+	}
 
-// 		e.preventDefault();
-// 		e.stopPropagation()
-// 		return false;
-// 	}
+	$Rbtn.on('click',function() {
+		slideMoveRight($(this));
+		// e.stopPropagation();
+	});
+	$Lbtn.on('click',function() {
+		slideMoveLeft($(this));
+		// e.stopPropagation();
+	});
 
-// 	$(document).on('click',$slideBtn,function(e){
-
-// 	// $Rbtn.on('click',function(e) {
-// 		console.log('click')
-// 		let $ol = $(this).parent($slideBtn).siblings($slide).find('ol');
-// 		let pos = $ol.css('margin-left');
-// 		$ol.css('margin-left',`${pos-1126}px`);
-// 		console.log(e.target)
-
-// 		// e.preventDefault();
-// 		// e.stopPropagation();
-// 		return false;
-// 	});
-// 	// });
-// 	$slideWrap.on('click',function(e){
-// 		console.log('slide ckucj');
-// 		// e.stopPropagation();
-// 	})
-// })
+	slideNumberInit()
+})

@@ -210,7 +210,7 @@ body{
 				left: 0; top: 0;
 				width: 100%; height: 100%;
 				color: #eee;
-				background-color: rgba(63, 62, 62, 0.527);
+				background-color: rgba(0,0,0,.9);
 				z-index: 10;
 				overflow: hidden;
 				transition: opacity .3s; transition-delay: .5s;
@@ -232,6 +232,11 @@ body{
 			.slide {position: relative; overflow: hidden; z-index: 10;}
 			.slide ol {width: 1000%;}
 			.slide li.poster {display: inline-block; margin-right: 17px; width: 202px; height: 296px;cursor: pointer;}
+			.slide .poster-thumb .rank {
+				position: absolute; left: 8px; top: 8px;
+				color: rgba(255, 255, 255, .9); font-size: 40px; font-weight: 200; font-style: italic;
+				z-index: 10;
+			}
 			.slide .poster img {width: 100%; height: 100%;}
 			.slide .poster .poster-title {
 				width: 95%; margin: 0 auto;
@@ -250,6 +255,7 @@ body{
 				background-color: #fff; border-radius: 50%;
 				box-shadow: 0 0 4px rgba(0, 0, 0, .2);
 			}
+			.slide-btn button.off{display: none;opacity: 0;}
 			.slide-btn button::after {
 				content: ""; display: block;
 				width: 10px; height: 10px;
@@ -297,6 +303,7 @@ body{
 				background: url('../images/box/kakaopage.png') no-repeat left center;
 				background-size: contain;
 			}
+			.middle-bottom .slide .poster-thumb .rank {font-size: 34px;}
 			.row2 .box-title span{background-image: url('../images/box/tving.png'); width: 100px;}
 			.middle-box>div[class^="row"] {margin-bottom: 66px; position: relative;}
 			.middle-box .poster img {transition: transform .2s linear;}
