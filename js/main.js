@@ -58,7 +58,7 @@ $(function(){
 		slideBtnHide(target,pos+SLIDE_WIDTH);
 	}
 	function slideBtnHide(target,newPos){
-		var end = -SLIDE_WIDTH*2;
+		let end = -SLIDE_WIDTH*2;
 		if (target.parents().hasClass('middle-bottom')) {end = -SLIDE_WIDTH;}
 
 		target.parent($slideBtn).children('button').removeClass('off');
@@ -69,18 +69,26 @@ $(function(){
 			target.parent($slideBtn).find('.next').addClass('off');
 		}
 	}
+	function toTop(){ $('html').scrollTop(0); }
 
 	$Rbtn.on('click',function() {
 		slideMoveRight($(this));
-		// e.stopPropagation();
 	});
 	$Lbtn.on('click',function() {
 		slideMoveLeft($(this));
-		// e.stopPropagation();
 	});
 
+	$('.top').on('click',function(){
+		toTop();
+	});
 
 	slideNumberInit();
 	previewTextInit();
 	setTimeout(previewTextHide,PREV_HIDE_TIME);
+	// 스크롤에 따라 top 아이콘 fade in/out
+	$(window).scroll(function(){
+		let st = $('html').scrollTop();
+		if (st>=2030) { $('.top').addClass('on')}
+		else {$('.top').removeClass('on')}
+	})
 })
