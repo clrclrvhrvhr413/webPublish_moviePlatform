@@ -82,6 +82,14 @@ $(function(){
 		toTop();
 	});
 
+	$('.row3 .preview .play').on('click',function(){
+		$(this).siblings('video').fadeOut(1200);
+		$(this).siblings('.preview-text').fadeOut();
+		$(this).fadeOut();
+		var youtube = $(this).siblings('iframe').attr('src');
+		$(this).siblings('iframe').attr('src',`${youtube}?autoplay=1&mute=1`);
+	});
+
 	slideNumberInit();
 	previewTextInit();
 	setTimeout(previewTextHide,PREV_HIDE_TIME);
@@ -90,5 +98,5 @@ $(function(){
 		let st = $('html').scrollTop();
 		if (st>=2030) { $('.top').addClass('on')}
 		else {$('.top').removeClass('on')}
-	})
+	});
 })
