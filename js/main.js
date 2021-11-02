@@ -4,7 +4,11 @@ $(function(){
 		$slideBtn = $slideWrap.find($('.slide-btn')),
 		$Rbtn = $slideBtn.find($('.next')),
 		$Lbtn = $slideBtn.find($('.prev'));
+
 	const $previewText = $('.middle-top .preview-text');
+	
+	const $Menu = $('.home-menu>ul>li');
+	var orginMenu = $('.home-menu>ul>li.on').index();
 
 	const PREV_HIDE_TIME = 10000,
 		PREV_ANIMATE_TIME = 500,
@@ -88,6 +92,17 @@ $(function(){
 		setTimeout(function(){$('.total-menu').removeClass('on');},600);
 	});
 
+	$Menu.on('mouseenter',function() {
+		$Menu.removeClass('on');
+	}).on('mouseleave',function(){
+		$Menu.eq(orginMenu).addClass('on');
+	})
+	$Menu.find('>a').on('click',function(){
+		$Menu.removeClass('on');
+		$(this).parent('li').addClass('on');
+		orginMenu = $(this).parent('li').index();
+	})
+
 	$('.row3 .preview .play').on('click',function(){
 		$(this).siblings('video').fadeOut(1200);
 		$(this).siblings('.preview-text').fadeOut();
@@ -99,7 +114,7 @@ $(function(){
 	slideNumberInit();
 	previewTextInit();
 	setTimeout(previewTextHide,PREV_HIDE_TIME);
-	// 스크롤에 따라 top 아이콘 fade in/out
+	// top 아이콘 완전 비활성화 필요
 	$(window).scroll(function(){
 		let st = $('html').scrollTop();
 		if (st>=2030) { $('.top').addClass('on')}
