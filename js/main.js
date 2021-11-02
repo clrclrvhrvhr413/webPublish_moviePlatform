@@ -6,6 +6,7 @@ $(function(){
 		$Lbtn = $slideBtn.find($('.prev'));
 
 	const $previewText = $('.middle-top .preview-text');
+	const $topIcon = $('.to-top .top');
 	
 	const $Menu = $('.home-menu>ul>li');
 	var orginMenu = $('.home-menu>ul>li.on').index();
@@ -84,7 +85,7 @@ $(function(){
 		slideMoveLeft($(this));
 	});
 
-	$('.top').on('click',function(){
+	$topIcon.on('click',function(){
 		toTop();
 	});
 
@@ -118,13 +119,14 @@ $(function(){
 	setTimeout(previewTextHide,PREV_HIDE_TIME);
 	$(window).scroll(function(){
 		st = Math.floor($('html').scrollTop());
-		if (st>=2020) {
-			$('.top').show();
-			setTimeout(function(){$('.top').addClass('on')},100)
+		console.log(st)
+		if (st>2030) {
+			$('.to-top').show();
+			setTimeout(function(){$topIcon.addClass('on')},100);
 		}
 		else {
-			$('.top').removeClass('on');
-			setTimeout(function(){$('.top').hide()},800);
+			$topIcon.removeClass('on');
+			setTimeout(function(){$('.to-top').stop().hide()},800);
 		}
 	});
 })
