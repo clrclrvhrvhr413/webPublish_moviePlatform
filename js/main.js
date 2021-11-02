@@ -82,6 +82,12 @@ $(function(){
 		toTop();
 	});
 
+	$('.total-menu-container').on('mouseenter',function(){
+		$('.total-menu').addClass('on');
+	}).on('mouseleave',function(){
+		setTimeout(function(){$('.total-menu').removeClass('on');},600);
+	});
+
 	$('.row3 .preview .play').on('click',function(){
 		$(this).siblings('video').fadeOut(1200);
 		$(this).siblings('.preview-text').fadeOut();
