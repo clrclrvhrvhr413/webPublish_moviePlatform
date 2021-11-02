@@ -10,6 +10,8 @@ $(function(){
 	const $Menu = $('.home-menu>ul>li');
 	var orginMenu = $('.home-menu>ul>li.on').index();
 
+	var st = Math.floor($('html').scrollTop());
+
 	const PREV_HIDE_TIME = 10000,
 		PREV_ANIMATE_TIME = 500,
 		SLIDE_WIDTH = 1123;
@@ -73,7 +75,7 @@ $(function(){
 			target.parent($slideBtn).find('.next').addClass('off');
 		}
 	}
-	function toTop(){ $('html').scrollTop(0); }
+	function toTop(){ $('html').scrollTop(0);}
 
 	$Rbtn.on('click',function() {
 		slideMoveRight($(this));
@@ -114,10 +116,15 @@ $(function(){
 	slideNumberInit();
 	previewTextInit();
 	setTimeout(previewTextHide,PREV_HIDE_TIME);
-	// top 아이콘 완전 비활성화 필요
 	$(window).scroll(function(){
-		let st = $('html').scrollTop();
-		if (st>=2030) { $('.top').addClass('on')}
-		else {$('.top').removeClass('on')}
+		st = Math.floor($('html').scrollTop());
+		if (st>=2020) {
+			$('.top').show();
+			setTimeout(function(){$('.top').addClass('on')},100)
+		}
+		else {
+			$('.top').removeClass('on');
+			setTimeout(function(){$('.top').hide()},800);
+		}
 	});
 })
